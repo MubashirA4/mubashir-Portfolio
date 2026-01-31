@@ -1,25 +1,35 @@
-import Navigation from "@/components/Navigation";
-import HeroSection from "@/components/HeroSection";
-import AboutSection from "@/components/AboutSection";
-import SkillsSection from "@/components/SkillsSection";
-import ProjectsSection from "@/components/ProjectsSection";
-import ExperienceSection from "@/components/ExperienceSection";
-import ContactSection from "@/components/ContactSection";
-import Footer from "@/components/Footer";
+import NakulaNavigation from "@/components/NakulaNavigation";
+import NakulaHero from "@/components/NakulaHero";
+import NakulaAbout from "@/components/NakulaAbout";
+import NakulaWorks from "@/components/NakulaWorks";
+import NakulaStats from "@/components/NakulaStats";
+import NakulaServices from "@/components/NakulaServices";
+import NakulaProcess from "@/components/NakulaProcess";
+import NakulaTestimonials from "@/components/NakulaTestimonials";
+import NakulaPricing from "@/components/NakulaPricing";
+import NakulaFAQ from "@/components/NakulaFAQ";
+import NakulaBlog from "@/components/NakulaBlog";
+import NakulaCTA from "@/components/NakulaCTA";
+import NakulaFooter from "@/components/NakulaFooter";
 
 const Index = () => {
   return (
     <div className="min-h-screen bg-background overflow-x-hidden">
-      <Navigation />
+      <NakulaNavigation />
       <main>
-        <HeroSection />
-        <AboutSection />
-        <SkillsSection />
-        <ProjectsSection />
-        <ExperienceSection />
-        <ContactSection />
+        <NakulaHero />
+        <NakulaAbout />
+        <NakulaWorks />
+        <NakulaStats />
+        <NakulaServices />
+        <NakulaProcess />
+        <NakulaTestimonials />
+        <NakulaPricing />
+        <NakulaFAQ />
+        <NakulaBlog />
+        <NakulaCTA />
       </main>
-      <Footer />
+      <NakulaFooter />
     </div>
   );
 };
