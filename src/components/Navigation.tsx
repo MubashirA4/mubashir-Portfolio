@@ -28,9 +28,7 @@ const Navigation = () => {
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.6, ease: "easeOut" }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled
-          ? "glass-card border-b border-border/50"
-          : "bg-transparent"
+        isScrolled ? "glass-card border-b border-border/50" : "bg-transparent"
       }`}
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -41,9 +39,7 @@ const Navigation = () => {
             className="text-xl sm:text-2xl font-bold text-gradient-gold"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-          >
-            MAH
-          </motion.a>
+          ></motion.a>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-8">

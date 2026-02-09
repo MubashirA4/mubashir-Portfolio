@@ -62,7 +62,7 @@ const AboutSection = () => {
           className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center"
         >
           {/* Left Column - Text Content */}
-          <div>
+          <div className="flex">
             <motion.span
               variants={itemVariants}
               className="text-primary font-medium text-sm uppercase tracking-widest mb-4 block"
@@ -78,14 +78,15 @@ const AboutSection = () => {
             </motion.h2>
             <motion.p variants={itemVariants} className="text-body mb-6">
               I'm a Full Stack Developer with a passion for creating elegant,
-              efficient, and user-friendly web applications. With expertise spanning
-              both frontend and backend technologies, I bring ideas to life through
-              clean code and intuitive design.
+              efficient, and user-friendly web applications. With expertise
+              spanning both frontend and backend technologies, I bring ideas to
+              life through clean code and intuitive design.
             </motion.p>
             <motion.p variants={itemVariants} className="text-body mb-8">
-              My approach focuses on understanding the core problem before diving
-              into solutions. I believe in building scalable architectures that grow
-              with your business, ensuring long-term success and maintainability.
+              My approach focuses on understanding the core problem before
+              diving into solutions. I believe in building scalable
+              architectures that grow with your business, ensuring long-term
+              success and maintainability.
             </motion.p>
             <motion.div
               variants={itemVariants}

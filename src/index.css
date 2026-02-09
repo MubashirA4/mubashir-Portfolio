@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Nakula Design Studio - Bold Dark Theme */
+/* Design Studio - Bold Dark Theme */
 
 @layer base {
   :root {
@@ -16,7 +16,7 @@
     --popover: 0 0% 8%;
     --popover-foreground: 0 0% 98%;
 
-    /* Coral/Orange accent - the signature Nakula color */
+    /* Coral/Orange accent - the signature color */
     --primary: 14 90% 58%;
     --primary-foreground: 0 0% 4%;
 
@@ -42,7 +42,11 @@
     --radius: 0.5rem;
 
     /* Custom properties */
-    --gradient-cta: linear-gradient(135deg, hsl(14 90% 58%) 0%, hsl(25 95% 55%) 100%);
+    --gradient-cta: linear-gradient(
+      135deg,
+      hsl(14 90% 58%) 0%,
+      hsl(25 95% 55%) 100%
+    );
     --shadow-glow: 0 0 60px hsl(14 90% 58% / 0.3);
 
     /* Sidebar defaults */
@@ -90,7 +94,11 @@
 
   body {
     @apply bg-background text-foreground antialiased;
-    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    font-family:
+      "Inter",
+      system-ui,
+      -apple-system,
+      sans-serif;
   }
 
   ::selection {
@@ -106,8 +114,14 @@
   }
 
   /* Section label like (ABOUT), (SERVICES) */
-  .section-label {
-    @apply text-xs tracking-[0.3em] text-muted-foreground uppercase mb-6;
+  .section-label,
+  .framer-styles-preset-186rn72 {
+    @apply text-[11px] font-medium tracking-[0.25em] text-muted-foreground uppercase mb-6;
+    font-family: "Inter", sans-serif;
+  }
+
+  .framer-text {
+    @apply antialiased;
   }
 
   /* Large heading styles */
@@ -206,7 +220,7 @@
   }
 
   .process-step::before {
-    content: '';
+    content: "";
     @apply absolute left-0 top-8 w-3 h-3 -translate-x-1/2 rounded-full bg-primary;
   }
 }
