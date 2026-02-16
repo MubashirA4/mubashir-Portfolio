@@ -3,37 +3,20 @@ import { useRef } from "react";
 
 const skillCategories = [
   {
-    title: "Frontend",
-    skills: [
-      "React",
-      "Next.js",
-      "TypeScript",
-      "Tailwind CSS",
-      "Framer Motion",
-      "Three.js",
-    ],
+    title: "Front-end",
+    skills: ["HTML5", "CSS3", "JavaScript", "React.js", "Tailwind CSS"],
   },
   {
     title: "Backend",
-    skills: [
-      "Node.js",
-      "PostgreSQL",
-      "MongoDB",
-      "GraphQL",
-      "Python",
-      "Supabase",
-    ],
+    skills: ["Node.js", "Express.js"],
   },
   {
-    title: "Design & Tools",
-    skills: [
-      "Figma",
-      "Adobe Creative Suite",
-      "UI/UX Design",
-      "Git",
-      "Docker",
-      "Vercel",
-    ],
+    title: "Database & Cloud",
+    skills: ["MongoDB", "Firebase"],
+  },
+  {
+    title: "Tools",
+    skills: ["VS Code", "Git", "GitHub", "Vercel"],
   },
 ];
 
@@ -82,7 +65,7 @@ const Skills = () => {
         initial={{ opacity: 0, y: 30 }}
         animate={isInView ? { opacity: 1, y: 0 } : {}}
         transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-        className="text-7xl sm:text-8xl lg:text-9xl font-bold  uppercase tracking-tighter mb-40"
+        className="text-7xl sm:text-8xl lg:text-7xl font-bold  uppercase tracking-tighter mb-40"
       >
         Technical <span className="">Powers</span>
       </motion.h2>
@@ -91,7 +74,7 @@ const Skills = () => {
         variants={containerVariants}
         initial="hidden"
         animate={isInView ? "visible" : "hidden"}
-        className="grid md:grid-cols-3 gap-12 lg:gap-20"
+        className="grid md:grid-cols-4 gap-12 lg:gap-16"
       >
         {skillCategories.map((category) => (
           <motion.div

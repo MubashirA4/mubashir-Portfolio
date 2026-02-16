@@ -111,6 +111,7 @@
   /* Section container */
   .section-container {
     @apply container mx-auto px-6 lg:px-12 py-20 lg:py-32;
+    scroll-margin-top: 100px;
   }
 
   /* Section label like (ABOUT), (SERVICES) */
@@ -257,5 +258,14 @@
   .no-scrollbar {
     -ms-overflow-style: none;
     scrollbar-width: none;
+  }
+
+  .hover-glow:hover {
+    box-shadow: 0 0 20px hsl(var(--primary) / 0.4);
+  }
+
+  .text-stroke {
+    -webkit-text-stroke: 1px currentColor;
+    color: transparent;
   }
 }

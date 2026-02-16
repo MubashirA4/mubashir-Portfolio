@@ -52,7 +52,7 @@ const AboutSection = () => {
   ];
 
   return (
-    <section id="about" className="relative bg-navy-mid/30 py-20 lg:py-28">
+    <section className="relative bg-navy-mid/30 py-20 lg:py-28">
       <div className="section-container">
         <motion.div
           ref={ref}

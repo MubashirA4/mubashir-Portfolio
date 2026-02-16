@@ -37,7 +37,7 @@ const LatestWorks = () => {
 
   return (
     <section
-      id="works"
+      id="projects"
       className="section-container min-h-screen py-32"
       ref={containerRef}
     >

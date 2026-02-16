@@ -3,11 +3,10 @@ import { motion } from "framer-motion";
 const Footer = () => {
   const footerLinks = {
     main: [
-      { name: "Works", href: "#works" },
-      { name: "Services", href: "#services" },
-      { name: "Process", href: "#process" },
-      { name: "Pricing", href: "#pricing" },
-      { name: "Blog", href: "#blog" },
+      { name: "About", href: "/#about" },
+      { name: "Skills", href: "/#skills" },
+      { name: "Projects", href: "/#projects" },
+      { name: "Contact", href: "/contact" },
     ],
     social: [
       { name: "Instagram", href: "#" },
@@ -36,7 +35,7 @@ const Footer = () => {
               We build brands, websites, and digital experiences with intention,
               clarity and care.
             </p>
-            <a href="#contact" className="cta-button">
+            <a href="/contact" className="cta-button">
               START A PROJECT
             </a>
           </div>

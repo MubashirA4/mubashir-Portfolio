@@ -43,7 +43,11 @@ const SkillBar = ({ skill, index }: { skill: Skill; index: number }) => {
           className="skill-bar-fill"
           initial={{ width: 0 }}
           animate={isInView ? { width: `${skill.level}%` } : {}}
-          transition={{ duration: 1, delay: 0.3 + index * 0.1, ease: "easeOut" }}
+          transition={{
+            duration: 1,
+            delay: 0.3 + index * 0.1,
+            ease: "easeOut",
+          }}
         />
       </div>
     </motion.div>
@@ -65,7 +69,7 @@ const SkillCard = ({ skill, index }: { skill: Skill; index: number }) => {
     >
       {/* Gradient overlay on hover */}
       <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-      
+
       <div className="relative z-10">
         <div className="flex items-center justify-between mb-4">
           <h3 className="font-semibold text-foreground group-hover:text-primary transition-colors">
@@ -75,7 +79,7 @@ const SkillCard = ({ skill, index }: { skill: Skill; index: number }) => {
             {skill.category}
           </span>
         </div>
-        
+
         {/* Circular progress indicator */}
         <div className="relative w-20 h-20 mx-auto">
           <svg className="w-20 h-20 transform -rotate-90">
@@ -97,12 +101,22 @@ const SkillCard = ({ skill, index }: { skill: Skill; index: number }) => {
               strokeLinecap="round"
               strokeDasharray={220}
               initial={{ strokeDashoffset: 220 }}
-              animate={isInView ? { strokeDashoffset: 220 - (220 * skill.level) / 100 } : {}}
-              transition={{ duration: 1.5, delay: 0.3 + index * 0.08, ease: "easeOut" }}
+              animate={
+                isInView
+                  ? { strokeDashoffset: 220 - (220 * skill.level) / 100 }
+                  : {}
+              }
+              transition={{
+                duration: 1.5,
+                delay: 0.3 + index * 0.08,
+                ease: "easeOut",
+              }}
             />
           </svg>
           <div className="absolute inset-0 flex items-center justify-center">
-            <span className="text-lg font-bold text-gradient-gold">{skill.level}%</span>
+            <span className="text-lg font-bold text-gradient-gold">
+              {skill.level}%
+            </span>
           </div>
         </div>
       </div>
@@ -119,7 +133,7 @@ const SkillsSection = () => {
   const toolSkills = skills.filter((s) => s.category === "Tools");
 
   return (
-    <section id="skills" className="relative py-20 lg:py-28">
+    <section className="relative py-20 lg:py-28">
       <div className="section-container">
         <motion.div
           ref={ref}
@@ -135,8 +149,8 @@ const SkillsSection = () => {
             Skills & <span className="text-gradient-gold">Technologies</span>
           </h2>
           <p className="text-body max-w-2xl mx-auto">
-            A comprehensive toolkit of modern web technologies that I use to build
-            exceptional digital experiences.
+            A comprehensive toolkit of modern web technologies that I use to
+            build exceptional digital experiences.
           </p>
         </motion.div>
 
