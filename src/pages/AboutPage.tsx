@@ -1,6 +1,7 @@
 import Navigation from "@/components/Navigation";
 import Education from "@/components/Education";
 import Footer from "@/components/Footer";
+import BackButton from "@/components/BackButton";
 import { motion } from "framer-motion";
 
 const AboutPage = () => {
@@ -8,6 +9,9 @@ const AboutPage = () => {
     <div className="min-h-screen bg-background overflow-x-hidden">
       <Navigation />
       <main className="pt-32 pb-20">
+        <div className="container mx-auto px-6 lg:px-12 mb-8">
+          <BackButton />
+        </div>
         <div className="container mx-auto px-6 lg:px-12 mb-20 text-center">
           <motion.div
             initial={{ opacity: 0, y: 30 }}

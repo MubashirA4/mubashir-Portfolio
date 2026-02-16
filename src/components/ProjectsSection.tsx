@@ -1,70 +1,19 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
-import { ExternalLink, Github, Folder } from "lucide-react";
+import { ExternalLink, Github, Folder, ArrowRight } from "lucide-react";
+import { useNavigate } from "react-router-dom";
+import { projects, Project } from "@/data/projects";
 
-interface Project {
-  title: string;
-  description: string;
-  techStack: string[];
-  liveUrl: string;
-  githubUrl: string;
-  featured: boolean;
-}
-
-const projects: Project[] = [
-  {
-    title: "E-Commerce Platform",
-    description: "A full-featured e-commerce solution with cart management, payment integration, and admin dashboard. Built for scalability and performance.",
-    techStack: ["React", "Node.js", "MongoDB", "Stripe", "Tailwind CSS"],
-    liveUrl: "#",
-    githubUrl: "#",
-    featured: true,
-  },
-  {
-    title: "Task Management App",
-    description: "Collaborative project management tool with real-time updates, drag-and-drop functionality, and team collaboration features.",
-    techStack: ["React", "Firebase", "Framer Motion", "Tailwind CSS"],
-    liveUrl: "#",
-    githubUrl: "#",
-    featured: true,
-  },
-  {
-    title: "Portfolio Generator",
-    description: "A dynamic portfolio builder that allows developers to create stunning portfolios with customizable themes and layouts.",
-    techStack: ["React", "Node.js", "Express", "MongoDB"],
-    liveUrl: "#",
-    githubUrl: "#",
-    featured: true,
-  },
-  {
-    title: "Weather Dashboard",
-    description: "Real-time weather application with location-based forecasts, interactive maps, and weather alerts.",
-    techStack: ["React", "OpenWeather API", "Chart.js"],
-    liveUrl: "#",
-    githubUrl: "#",
-    featured: false,
-  },
-  {
-    title: "Blog Platform",
-    description: "Modern blogging platform with markdown support, SEO optimization, and content management system.",
-    techStack: ["React", "Node.js", "MongoDB", "AWS S3"],
-    liveUrl: "#",
-    githubUrl: "#",
-    featured: false,
-  },
-  {
-    title: "Chat Application",
-    description: "Real-time messaging application with rooms, direct messages, and file sharing capabilities.",
-    techStack: ["React", "Socket.io", "Node.js", "MongoDB"],
-    liveUrl: "#",
-    githubUrl: "#",
-    featured: false,
-  },
-];
-
-const ProjectCard = ({ project, index }: { project: Project; index: number }) => {
+const ProjectCard = ({
+  project,
+  index,
+}: {
+  project: Project;
+  index: number;
+}) => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-50px" });
+  const navigate = useNavigate();
 
   return (
     <motion.div
@@ -73,9 +22,8 @@ const ProjectCard = ({ project, index }: { project: Project; index: number }) =>
       animate={isInView ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 0.6, delay: index * 0.1 }}
       whileHover={{ y: -10 }}
-      className={`glass-card rounded-xl overflow-hidden hover-glow group ${
-        project.featured ? "md:col-span-2 lg:col-span-1" : ""
-      }`}
+      onClick={() => navigate(`/project/${project.id}`)}
+      className="glass-card rounded-xl overflow-hidden hover-glow group cursor-pointer relative"
     >
       {/* Project Header */}
       <div className="p-6 pb-4">
@@ -84,24 +32,34 @@ const ProjectCard = ({ project, index }: { project: Project; index: number }) =>
             <Folder className="w-6 h-6 text-primary" />
           </div>
           <div className="flex gap-3">
-            <motion.a
-              href={project.githubUrl}
-              className="p-2 text-muted-foreground hover:text-primary transition-colors"
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.95 }}
-              aria-label="View on GitHub"
-            >
-              <Github size={20} />
-            </motion.a>
-            <motion.a
-              href={project.liveUrl}
-              className="p-2 text-muted-foreground hover:text-primary transition-colors"
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.95 }}
-              aria-label="View Live Demo"
-            >
-              <ExternalLink size={20} />
-            </motion.a>
+            {project.githubUrl && (
+              <motion.a
+                href={project.githubUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={(e) => e.stopPropagation()}
+                className="p-2 text-muted-foreground hover:text-primary transition-colors"
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.95 }}
+                aria-label="View on GitHub"
+              >
+                <Github size={20} />
+              </motion.a>
+            )}
+            {project.liveUrl && (
+              <motion.a
+                href={project.liveUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={(e) => e.stopPropagation()}
+                className="p-2 text-muted-foreground hover:text-primary transition-colors"
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.95 }}
+                aria-label="View Live Demo"
+              >
+                <ExternalLink size={20} />
+              </motion.a>
+            )}
           </div>
         </div>
 
@@ -125,6 +83,10 @@ const ProjectCard = ({ project, index }: { project: Project; index: number }) =>
             </span>
           ))}
         </div>
+      </div>
+
+      <div className="px-6 pb-6 mt-auto flex items-center gap-2 text-primary font-medium text-sm opacity-0 group-hover:opacity-100 transition-opacity">
+        View Project Details <ArrowRight size={14} />
       </div>
 
       {/* Hover gradient */}
@@ -154,15 +116,15 @@ const ProjectsSection = () => {
             Featured <span className="text-gradient-gold">Projects</span>
           </h2>
           <p className="text-body max-w-2xl mx-auto">
-            A collection of projects that showcase my skills and passion for building
-            exceptional web applications.
+            A collection of projects that showcase my skills and passion for
+            building exceptional web applications.
           </p>
         </motion.div>
 
         {/* Projects Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {projects.map((project, index) => (
-            <ProjectCard key={project.title} project={project} index={index} />
+            <ProjectCard key={project.id} project={project} index={index} />
           ))}
         </div>
 

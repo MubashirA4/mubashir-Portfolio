@@ -1,7 +1,7 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { useState, useEffect } from "react";
-import { Menu, X } from "lucide-react";
-import { Link } from "react-router-dom";
+import { Menu, X, Github, Linkedin, Mail } from "lucide-react";
+import { Link, useLocation } from "react-router-dom";
 
 const navItems = [
   { name: "About", href: "/#about" },
@@ -10,11 +10,19 @@ const navItems = [
   { name: "Contact", href: "/contact" },
 ];
 
+const socialLinks = [
+  { icon: Github, href: "https://github.com", label: "GitHub" },
+  { icon: Linkedin, href: "https://linkedin.com", label: "LinkedIn" },
+  { icon: Mail, href: "mailto:contact@mubashir.dev", label: "Email" },
+];
+
 const MotionLink = motion(Link);
 
 const Navigation = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const location = useLocation();
+  const isHomePage = location.pathname === "/";
 
   useEffect(() => {
     const handleScroll = () => {
@@ -44,34 +52,68 @@ const Navigation = () => {
       >
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 pointer-events-auto">
           <div className="flex items-center justify-between h-16 sm:h-20">
-            {/* Logo area - invisible spacer */}
-            <div className="flex-1" />
+            <div className="flex-1">
+              <AnimatePresence>
+                {!isHomePage && (
+                  <MotionLink
+                    to="/"
+                    initial={{ opacity: 0, x: -20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    exit={{ opacity: 0, x: -20 }}
+                    className="text-lg sm:text-xl font-bold tracking-tighter hover:text-primary transition-colors inline-block"
+                  >
+                    Mubashir Ahmad Hamza
+                  </MotionLink>
+                )}
+              </AnimatePresence>
+            </div>
 
             {/* Desktop Navigation */}
             <div className="hidden md:flex items-center gap-8">
-              {navItems.map((item, index) => (
-                <MotionLink
-                  key={item.name}
-                  to={item.href}
-                  className="nav-link text-sm font-medium animated-underline"
+              <div className="flex items-center gap-6 pr-8 border-r border-border/50">
+                {navItems.map((item, index) => (
+                  <MotionLink
+                    key={item.name}
+                    to={item.href}
+                    className="nav-link text-sm font-medium animated-underline"
+                    initial={{ opacity: 0, y: -20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.1 * index, duration: 0.4 }}
+                    whileHover={{ y: -2 }}
+                  >
+                    {item.name}
+                  </MotionLink>
+                ))}
+              </div>
+
+              {/* Social Icons Desktop */}
+              <div className="flex items-center gap-5">
+                {socialLinks.map((social, index) => (
+                  <motion.a
+                    key={social.label}
+                    href={social.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    initial={{ opacity: 0, scale: 0 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ delay: 0.5 + index * 0.1 }}
+                    whileHover={{ y: -3, color: "hsl(var(--primary))" }}
+                    className="text-muted-foreground transition-colors"
+                  >
+                    <social.icon size={20} />
+                  </motion.a>
+                ))}
+                <motion.a
+                  href="/Mubashir Ahmad CV.pdf"
+                  download="Mubashir Ahmad CV.pdf"
+                  className="px-5 py-2.5 bg-white text-black rounded-full font-semibold text-sm hover:scale-105 transition-transform ml-2"
                   initial={{ opacity: 0, y: -20 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.1 * index, duration: 0.4 }}
-                  whileHover={{ y: -2 }}
+                  transition={{ delay: 0.8, duration: 0.4 }}
                 >
-                  {item.name}
-                </MotionLink>
-              ))}
-              <motion.a
-                href="/Mubashir Ahmad CV.pdf"
-                download="Mubashir Ahmad CV.pdf"
-                className="px-5 py-2.5 bg-white text-black rounded-full font-semibold text-sm hover:scale-105 transition-transform"
-                initial={{ opacity: 0, y: -20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.6, duration: 0.4 }}
-              >
-                Download CV
-              </motion.a>
+                  Download CV
+                </motion.a>
+              </div>
             </div>
 
             {/* Mobile Menu Button */}
@@ -95,26 +137,44 @@ const Navigation = () => {
               transition={{ duration: 0.3 }}
               className="md:hidden glass-card border-t border-border/50 pointer-events-auto"
             >
-              <div className="container mx-auto px-4 py-6 flex flex-col gap-4">
-                {navItems.map((item, index) => (
-                  <MotionLink
-                    key={item.name}
-                    to={item.href}
-                    className="text-muted-foreground hover:text-primary transition-colors py-2 text-lg"
-                    initial={{ opacity: 0, x: -20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: 0.05 * index }}
-                    onClick={() => setIsMobileMenuOpen(false)}
-                  >
-                    {item.name}
-                  </MotionLink>
-                ))}
+              <div className="container mx-auto px-4 py-6 flex flex-col gap-6">
+                <div className="flex flex-col gap-4">
+                  {navItems.map((item, index) => (
+                    <MotionLink
+                      key={item.name}
+                      to={item.href}
+                      className="text-muted-foreground hover:text-primary transition-colors py-2 text-lg font-medium"
+                      initial={{ opacity: 0, x: -20 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ delay: 0.05 * index }}
+                      onClick={() => setIsMobileMenuOpen(false)}
+                    >
+                      {item.name}
+                    </MotionLink>
+                  ))}
+                </div>
+
+                {/* Mobile Socials */}
+                <div className="flex items-center gap-6 pt-4 border-t border-border/50">
+                  {socialLinks.map((social) => (
+                    <a
+                      key={social.label}
+                      href={social.href}
+                      className="text-muted-foreground hover:text-primary transition-colors"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <social.icon size={24} />
+                    </a>
+                  ))}
+                </div>
+
                 <motion.a
                   href="/Mubashir Ahmad CV.pdf"
                   download="Mubashir Ahmad CV.pdf"
-                  className="px-5 py-3 bg-white text-black rounded-lg font-semibold text-center mt-2"
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={{ opacity: 1, x: 0 }}
+                  className="px-5 py-3 bg-white text-black rounded-xl font-bold text-center mt-2 shadow-lg"
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.3 }}
                   onClick={() => setIsMobileMenuOpen(false)}
                 >

@@ -12,6 +12,7 @@ import { useState } from "react";
 import { z } from "zod";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
+import BackButton from "@/components/BackButton";
 
 const contactSchema = z.object({
   name: z
@@ -114,6 +115,9 @@ const ContactPage = () => {
     <div className="min-h-screen bg-background overflow-x-hidden">
       <Navigation />
       <main className="pt-32 pb-20">
+        <div className="container mx-auto px-6 lg:px-12 mb-8">
+          <BackButton />
+        </div>
         <div className="container mx-auto px-6 lg:px-12">
           {/* Header */}
           <motion.div
