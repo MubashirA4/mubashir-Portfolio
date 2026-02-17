@@ -7,13 +7,7 @@ const navItems = [
   { name: "About", href: "/#about" },
   { name: "Skills", href: "/#skills" },
   { name: "Projects", href: "/#projects" },
-  { name: "Contact", href: "/contact" },
-];
-
-const socialLinks = [
-  { icon: Github, href: "https://github.com", label: "GitHub" },
-  { icon: Linkedin, href: "https://linkedin.com", label: "LinkedIn" },
-  { icon: Mail, href: "mailto:contact@mubashir.dev", label: "Email" },
+  { name: "Contact", href: "/#contact" },
 ];
 
 const MotionLink = motion(Link);
@@ -86,34 +80,16 @@ const Navigation = () => {
                 ))}
               </div>
 
-              {/* Social Icons Desktop */}
-              <div className="flex items-center gap-5">
-                {socialLinks.map((social, index) => (
-                  <motion.a
-                    key={social.label}
-                    href={social.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    initial={{ opacity: 0, scale: 0 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    transition={{ delay: 0.5 + index * 0.1 }}
-                    whileHover={{ y: -3, color: "hsl(var(--primary))" }}
-                    className="text-muted-foreground transition-colors"
-                  >
-                    <social.icon size={20} />
-                  </motion.a>
-                ))}
-                <motion.a
-                  href="/Mubashir Ahmad CV.pdf"
-                  download="Mubashir Ahmad CV.pdf"
-                  className="px-5 py-2.5 bg-white text-black rounded-full font-semibold text-sm hover:scale-105 transition-transform ml-2"
-                  initial={{ opacity: 0, y: -20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.8, duration: 0.4 }}
-                >
-                  Download CV
-                </motion.a>
-              </div>
+              <motion.a
+                href="/Mubashir Ahmad CV.pdf"
+                download="Mubashir Ahmad CV.pdf"
+                className="px-5 py-2.5 bg-white text-black rounded-full font-semibold text-sm hover:scale-105 transition-transform ml-2"
+                initial={{ opacity: 0, y: -20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.8, duration: 0.4 }}
+              >
+                Download CV
+              </motion.a>
             </div>
 
             {/* Mobile Menu Button */}
@@ -151,21 +127,6 @@ const Navigation = () => {
                     >
                       {item.name}
                     </MotionLink>
-                  ))}
-                </div>
-
-                {/* Mobile Socials */}
-                <div className="flex items-center gap-6 pt-4 border-t border-border/50">
-                  {socialLinks.map((social) => (
-                    <a
-                      key={social.label}
-                      href={social.href}
-                      className="text-muted-foreground hover:text-primary transition-colors"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      <social.icon size={24} />
-                    </a>
                   ))}
                 </div>
 

@@ -2,6 +2,8 @@ import { motion, useScroll, useTransform, useSpring } from "framer-motion";
 import { useRef } from "react";
 import { Link } from "react-router-dom";
 
+import MubashirImg from "../assets/Mubashir.png";
+
 const Hero = () => {
   const sectionRef = useRef<HTMLElement>(null);
   const { scrollY } = useScroll();
@@ -95,12 +97,12 @@ const Hero = () => {
 
           {/* 🔥 Hero Image Section */}
           <motion.div
-            initial={{ opacity: 0, x: 50 }}
-            animate={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
-            className="lg:col-span-4 relative hidden lg:flex justify-end pr-8"
+            className="lg:col-span-4 relative flex justify-center lg:justify-end mt-12 lg:mt-0"
           >
-            <div className="relative w-full max-w-[350px] h-[60vh] group">
+            <div className="relative w-full max-w-[280px] sm:max-w-[350px] aspect-[3/4] lg:h-[60vh] lg:aspect-auto group">
               {/* Soft Background Glow */}
               <div className="absolute -inset-4 bg-gradient-to-tr from-primary/10 to-blue-600/10 blur-2xl opacity-50 group-hover:opacity-100 transition-opacity duration-700" />
 
@@ -110,9 +112,9 @@ const Hero = () => {
               {/* Image Container */}
               <div className="relative w-full h-full rounded-2xl overflow-hidden bg-muted shadow-xl z-10">
                 <img
-                  src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=1974"
+                  src={MubashirImg}
                   alt="Mubashir Ahmad Hamza"
-                  className="w-full h-full object-cover grayscale-[20%] hover:grayscale-0 transition-all duration-700 hover:scale-105"
+                  className="w-full h-full object-cover object-top grayscale hover:grayscale-0 transition-all duration-700 hover:scale-105"
                 />
 
                 {/* Subtle Overlay Gradient */}
@@ -120,8 +122,8 @@ const Hero = () => {
               </div>
 
               {/* Minimalist Accent Lines */}
-              <div className="absolute -top-4 -right-4 w-24 h-24 border-t-2 border-r-2 border-primary/30 rounded-tr-3xl z-0" />
-              <div className="absolute -bottom-4 -left-4 w-24 h-24 border-b-2 border-l-2 border-blue-500/30 rounded-bl-3xl z-0" />
+              <div className="absolute -top-4 -right-4 w-16 h-16 sm:w-24 sm:h-24 border-t-2 border-r-2 border-primary/30 rounded-tr-3xl z-0" />
+              <div className="absolute -bottom-4 -left-4 w-16 h-16 sm:w-24 sm:h-24 border-b-2 border-l-2 border-blue-500/30 rounded-bl-3xl z-0" />
             </div>
           </motion.div>
         </div>

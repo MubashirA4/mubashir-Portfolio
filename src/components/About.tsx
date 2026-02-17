@@ -11,7 +11,7 @@ const About = () => {
   });
 
   const text =
-    "We combines years of web design and branding expertise to craft meaningful, story-driven experiences.";
+    "Full Stack Developer building scalable, high-performance web applications with React.js, Node.js, and MongoDB.";
   const words = text.split(" ");
 
   return (
