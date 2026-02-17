@@ -171,20 +171,29 @@ const ProjectDetail = () => {
                 <div className="bg-muted/30 p-8 rounded-3xl border border-border/50">
                   <h3 className="text-xl font-bold mb-4">Key Challenges</h3>
                   <p className="text-muted-foreground">
-                    Implementing a seamless user experience while maintaining
-                    high performance and security was the primary focus of this
-                    project.
+                    {project.challenges ||
+                      "Implementing a seamless user experience while maintaining high performance and security was the primary focus of this project."}
                   </p>
                 </div>
                 <div className="bg-muted/30 p-8 rounded-3xl border border-border/50">
                   <h3 className="text-xl font-bold mb-4">Solution</h3>
                   <p className="text-muted-foreground">
-                    Utilized modern frameworks and best practices to ensure a
-                    scalable and maintainable architecture that meets all client
-                    requirements.
+                    {project.solution ||
+                      "Utilized modern frameworks and best practices to ensure a scalable and maintainable architecture that meets all client requirements."}
                   </p>
                 </div>
               </div>
+
+              {project.impact && (
+                <div className="mt-8 bg-primary/5 p-8 rounded-3xl border border-primary/20">
+                  <h3 className="text-xl font-bold mb-4 text-primary text-center">
+                    Project Impact
+                  </h3>
+                  <p className="text-muted-foreground text-center">
+                    {project.impact}
+                  </p>
+                </div>
+              )}
             </div>
           </motion.div>
         </div>

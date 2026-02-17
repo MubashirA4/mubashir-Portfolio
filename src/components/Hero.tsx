@@ -61,7 +61,8 @@ const Hero = () => {
             </h2>
 
             <p className="mt-6 text-xl text-gray-400 leading-relaxed max-w-2xl">
-              Transforming complex ideas into seamless web solutions.
+              Transforming complex ideas into seamless, scalable, and
+              high-performance web solutions that delight users daily.{" "}
             </p>
 
             {/* CTA Buttons */}

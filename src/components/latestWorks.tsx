@@ -18,7 +18,7 @@ const LatestWorks = () => {
   return (
     <section
       id="projects"
-      className="section-container min-h-screen py-32"
+      className="section-container min-h-screen py-12"
       ref={containerRef}
     >
       {/* Centered Heading */}
@@ -121,7 +121,7 @@ const LatestWorks = () => {
                 <img
                   src={projects[hoveredIndex].image}
                   alt={projects[hoveredIndex].title}
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-cover object-left"
                 />
 
                 {/* Hover Overlay Button */}

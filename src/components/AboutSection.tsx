@@ -239,7 +239,7 @@ const AboutSection = () => {
             Learnings
           </span>
           <h2 className="text-5xl lg:text-7xl font-bold uppercase tracking-tighter">
-            Academic <span className="text-white/10 text-stroke">Journey</span>
+            Academic Journey
           </h2>
         </div>
 
@@ -364,13 +364,12 @@ const AboutSection = () => {
               <div className="flex flex-wrap gap-3">
                 {[
                   "VS Code",
+                  "Anti Gravity",
                   "Git/GitHub",
-                  "Docker",
                   "Vercel",
                   "Postman",
                   "Figma",
                   "Agile/Scrum",
-                  "CI/CD",
                 ].map((tool) => (
                   <span
                     key={tool}

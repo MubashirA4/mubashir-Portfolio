@@ -1,3 +1,5 @@
+import TechtideImage from '../assets/projects/Techtide.png'
+import BlogImage from '../assets/projects/Blog.png'
 export interface Project {
   id: number;
   title: string;
@@ -9,25 +11,47 @@ export interface Project {
   liveUrl?: string;
   githubUrl?: string;
   date: string;
+  challenges?: string;
+  solution?: string;
+  impact?: string;
 }
 
 export const projects: Project[] = [
   {
     id: 1,
-    title: "Arjuna",
-    description: "Personal Portfolio Website for talented design engineer",
+    title: "TechTide Corporate",
+    description: "Full Stack website built with React, Tailwind, and Firebase.",
     content:
-      "A comprehensive portfolio website designed to showcase personal achievements, projects, and skills. Built with a focus on modern aesthetics and smooth user experience. The project emphasizes responsive design and clean typography to ensure professional presentation across all devices.",
-    image:
-      "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=1964",
-    category: "Website",
-    techStack: ["React", "Tailwind CSS", "Framer Motion", "TypeScript"],
-    date: "January 2024",
-    liveUrl: "https://example.com/arjuna",
-    githubUrl: "https://github.com/example/arjuna",
+      "TechTide Corporate is a modern web platform for a technology solutions company. I built it using React.js for a dynamic frontend, Tailwind CSS for a fully responsive and polished UI, and Firebase for backend services including hosting, database, and authentication. The website delivers a smooth, professional, and user-friendly experience across devices.",
+    image: TechtideImage,
+    category: "Full Stack",
+    techStack: ["React.js", "Tailwind CSS", "Firebase"],
+    date: "January 2026",
+    liveUrl: "https://techtidecorporate.com/",
+    challenges: "Implemented reusable React components for scalability and maintained performance optimization while ensuring a responsive, mobile-first design.",
+    solution: "Integrated Firebase for robust backend services, including real-time database and hosting, ensuring a seamless and secure user experience.",
+    impact: "Created a scalable and engaging digital experience that effectively reflects the brand identity and delivers full-stack excellence.",
   },
   {
     id: 2,
+    title: "Blog Project",
+    description: "Full Stack Blog platform built with MERN stack (MongoDB, Express, React, Node.js).",
+    content:
+      "This Blog Project is a full-stack platform built on the MERN stack, allowing users to create, read, update, and delete blog posts. React.js provides a dynamic frontend, Tailwind CSS ensures a responsive and modern UI, Node.js and Express.js handle the backend logic, and MongoDB stores data efficiently. The platform delivers a smooth and engaging blogging experience across devices.",
+    image: BlogImage,
+    category: "Full Stack",
+    techStack: ["MongoDB", "Express.js", "React.js", "Node.js", "Tailwind CSS"],
+    date: "February 2026",
+    liveUrl: "#", // Replace with live demo if available
+    challenges:
+      "Implemented full CRUD functionality with MERN stack, managed dynamic content loading, and ensured responsive design across devices.",
+    solution:
+      "Utilized React for frontend components, Node.js/Express for backend APIs, and MongoDB for database storage, creating a robust blogging platform.",
+    impact:
+      "Delivered a complete MERN stack blog platform demonstrating full-stack proficiency and real-world application of modern web technologies.",
+  },
+  {
+    id: 3,
     title: "Bima",
     description: "Website and branding for AI Automation Company",
     content:
@@ -40,7 +64,7 @@ export const projects: Project[] = [
     liveUrl: "https://example.com/bima",
   },
   {
-    id: 3,
+    id: 4,
     title: "Mandala",
     description: "Website and branding for Design Agency",
     content:
@@ -53,7 +77,7 @@ export const projects: Project[] = [
     githubUrl: "https://github.com/example/mandala",
   },
   {
-    id: 4,
+    id: 5,
     title: "E-Commerce Platform",
     description: "A full-featured e-commerce solution with cart management, payment integration, and admin dashboard.",
     content: "A robust e-commerce platform built for high performance and scalability. Features include real-time inventory management, secure payment processing with Stripe, and a comprehensive admin panel for product and order management. The frontend is built for speed and SEO optimization.",
@@ -65,7 +89,7 @@ export const projects: Project[] = [
     githubUrl: "https://github.com/example/ecommerce"
   },
   {
-    id: 5,
+    id: 6,
     title: "Task Management App",
     description: "Collaborative project management tool with real-time updates and team collaboration.",
     content: "A professional-grade task management tool designed for teams. It features drag-and-drop task boards, real-time collaboration using WebSockets, and detailed project analytics. The application focus on productivity and intuitive user experience.",
@@ -77,7 +101,7 @@ export const projects: Project[] = [
     githubUrl: "https://github.com/example/tasks"
   },
   {
-    id: 6,
+    id: 7,
     title: "Weather Dashboard",
     description: "Real-time weather application with location-based forecasts and interactive maps.",
     content: "A sleek weather dashboard providing accurate, real-time weather data. It integrates multiple weather APIs to provide detailed forecasts, humidity levels, and wind speed. Features an interactive map for global weather visualization.",
