@@ -8,7 +8,7 @@ const CTA = () => {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section id="contact" className="relative py-32 overflow-hidden" ref={ref}>
+    <section id="contact" className="relative py-10 overflow-hidden" ref={ref}>
       {/* Background Image */}
       <div className="absolute inset-0 z-0">
         <div className="absolute inset-0 bg-gradient-to-t from-background via-background/90 to-background/70 z-10" />

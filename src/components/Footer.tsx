@@ -1,13 +1,25 @@
 import { motion } from "framer-motion";
-import { Github, Linkedin, Mail, Twitter, Instagram } from "lucide-react";
+import { Link } from "react-router-dom";
+import {
+  Github,
+  Linkedin,
+  Mail,
+  Twitter,
+  Instagram,
+  MapPin,
+} from "lucide-react";
 
 const Footer = () => {
   const footerLinks = {
     main: [
-      { name: "About", href: "/#about" },
-      { name: "Skills", href: "/#skills" },
-      { name: "Projects", href: "/#projects" },
-      { name: "Contact", href: "/#contact" },
+      { name: "Home", href: "/" },
+      { name: "About", href: "#about" },
+      { name: "Services", href: "#specialization" },
+      { name: "Skills", href: "#skills" },
+      { name: "Projects", href: "#projects" },
+      { name: "Experience", href: "#experience" },
+      { name: "Education", href: "#education" },
+      { name: "Contact", href: "#contact" },
     ],
     social: [
       { name: "GitHub", icon: Github, href: "https://github.com/MubashirA4" },
@@ -16,7 +28,7 @@ const Footer = () => {
         icon: Linkedin,
         href: "https://www.linkedin.com/in/mubashir-ahmad-hamza-a5961b279/",
       },
-      { name: "Email", icon: Mail, href: "mailto:hamza.cse123@gmail.com" },
+      { name: "Email", icon: Mail, href: "mailto:contact@mubashir.dev" },
     ],
     legal: [
       { name: "Privacy Policy", href: "#" },
@@ -26,15 +38,15 @@ const Footer = () => {
 
   return (
     <footer className="border-t border-border bg-background/50 backdrop-blur-sm">
-      <div className="section-container py-20">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-16 mb-20">
+      <div className="section-container py-20 px-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4  mb-10">
           {/* Logo & Description */}
           <div className="lg:col-span-2 space-y-8">
-            <a href="/" className="inline-block">
+            <Link to="/" className="inline-block">
               <span className="text-4xl font-bold tracking-tighter uppercase">
                 Mubashir<span className="text-primary">.</span>
               </span>
-            </a>
+            </Link>
             <p className="text-xl text-muted-foreground max-w-md leading-relaxed">
               Crafting premium digital experiences through purposeful design and
               high-performance engineering.
@@ -62,40 +74,61 @@ const Footer = () => {
           {/* Navigation */}
           <div className="space-y-8">
             <h4 className="text-sm font-bold uppercase tracking-[0.2em] text-foreground">
-              Sitemap
+              Quick Navigation
             </h4>
-            <ul className="space-y-4">
+            <ul className="grid grid-cols-2 grid-rows-4 grid-flow-col gap-x-8 gap-y-4">
               {footerLinks.main.map((link) => (
                 <li key={link.name}>
-                  <a
-                    href={link.href}
+                  <Link
+                    to={link.href}
                     className="text-lg text-muted-foreground hover:text-primary transition-colors flex items-center gap-2 group"
                   >
                     <span className="w-0 h-[1px] bg-primary group-hover:w-4 transition-all duration-300" />
                     {link.name}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
           </div>
 
           {/* Quick Contact */}
-          <div className="space-y-8">
+          <div className="space-y-8 ml-10">
             <h4 className="text-sm font-bold uppercase tracking-[0.2em] text-foreground">
-              Contact
+              Contact Detail
             </h4>
             <div className="space-y-6">
-              <p className="text-lg text-muted-foreground leading-relaxed">
-                Have a project in mind?
-                <br />
-                <a
-                  href="mailto:contact@mubashir.dev"
-                  className="text-white hover:text-primary transition-colors font-medium underline decoration-primary/30 underline-offset-8"
-                >
-                  Get in touch
-                </a>
-              </p>
-              <p className="text-sm text-muted-foreground uppercase tracking-widest">
+              <div className="flex items-start gap-4">
+                <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0">
+                  <Mail className="w-5 h-5 text-primary" />
+                </div>
+                <div>
+                  <p className="text-xs text-muted-foreground uppercase tracking-widest mb-1">
+                    Email
+                  </p>
+                  <a
+                    href="mailto:hamza.cse123@gmail.com"
+                    className="text-lg text-foreground hover:text-primary transition-colors font-medium"
+                  >
+                    hamza.cse123@gmail.com
+                  </a>
+                </div>
+              </div>
+
+              <div className="flex items-start gap-4">
+                <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0">
+                  <MapPin className="w-5 h-5 text-primary" />
+                </div>
+                <div>
+                  <p className="text-xs text-muted-foreground uppercase tracking-widest mb-1">
+                    Location
+                  </p>
+                  <p className="text-lg text-foreground font-medium">
+                    Lahore, Pakistan
+                  </p>
+                </div>
+              </div>
+
+              <p className="text-sm text-muted-foreground uppercase tracking-widest pt-2">
                 Available Worldwide
               </p>
             </div>
@@ -103,7 +136,7 @@ const Footer = () => {
         </div>
 
         {/* Bottom Bar */}
-        <div className="flex flex-col md:flex-row items-center justify-between gap-8 pt-10 border-t border-white/5">
+        <div className="flex flex-col md:flex-row items-center justify-between gap-8 pt-4 border-t border-white/5">
           <div className="flex items-center gap-8">
             <p className="text-sm text-muted-foreground">
               © {new Date().getFullYear()} Mubashir Ahmad Hamza. All rights

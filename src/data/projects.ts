@@ -1,4 +1,5 @@
 import TechtideImage from '../assets/projects/Techtide.png'
+import NexusClinicImage from '../assets/projects/Nexus Image 1.png'
 import BlogImage from '../assets/projects/Blog.png'
 export interface Project {
   id: number;
@@ -33,7 +34,25 @@ export const projects: Project[] = [
     impact: "Created a scalable and engaging digital experience that effectively reflects the brand identity and delivers full-stack excellence.",
   },
   {
-    id: 2,
+  id: 2,
+  title: "Nexus Clinic",
+  description: "Full Stack healthcare platform built with MERN stack and Tailwind CSS.",
+  content:
+    "Nexus Clinic is a full-stack healthcare appointment and management platform built using the MERN stack (MongoDB, Express.js, React.js, Node.js) with Tailwind CSS for a clean and responsive user interface. The system allows patients to book appointments, view doctors, and access essential medical information, while backend services handle secure data storage, authentication, and API operations. Designed with performance, usability, and healthcare accessibility in mind.",
+  image: NexusClinicImage,
+  category: "Full Stack",
+  techStack: ["MongoDB", "Express.js", "React.js", "Node.js", "Tailwind CSS"],
+  date: "March 2026",
+  liveUrl: "https://mubashir-portfolio-2ify.vercel.app/", // Add live URL if deployed
+  challenges:
+    "Built a full healthcare appointment system with secure authentication, dynamic data management, and responsive interfaces.",
+  solution:
+    "Used the MERN stack to implement RESTful APIs, managed state with React, and styled robust UI with Tailwind CSS for seamless interactions.",
+  impact:
+    "Delivered a scalable, user-centered healthcare platform demonstrating real-world full-stack development and problem-solving abilities.",
+},
+  {
+    id: 3,
     title: "Blog Project",
     description: "Full Stack Blog platform built with MERN stack (MongoDB, Express, React, Node.js).",
     content:
@@ -49,67 +68,5 @@ export const projects: Project[] = [
       "Utilized React for frontend components, Node.js/Express for backend APIs, and MongoDB for database storage, creating a robust blogging platform.",
     impact:
       "Delivered a complete MERN stack blog platform demonstrating full-stack proficiency and real-world application of modern web technologies.",
-  },
-  {
-    id: 3,
-    title: "Bima",
-    description: "Website and branding for AI Automation Company",
-    content:
-      "Digital presence and visual identity for a cutting-edge AI automation firm. This project involved creating a powerful landing page that communicates complex AI concepts simply and effectively. The branding includes a custom color palette and typography that reflects innovation and reliability.",
-    image:
-      "https://images.unsplash.com/photo-1558591710-4b4a1ae0f04d?q=80&w=1974",
-    category: "Branding",
-    techStack: ["Next.js", "Three.js", "Styled Components", "AI APIs"],
-    date: "December 2023",
-    liveUrl: "https://example.com/bima",
-  },
-  {
-    id: 4,
-    title: "Mandala",
-    description: "Website and branding for Design Agency",
-    content:
-      "A creative agency website built to highlight high-end design work and artistic direction. The site features dynamic grid layouts, sophisticated animations, and a seamless navigation system. It serves as both a portfolio and a client acquisition tool for the agency.",
-    image:
-      "https://images.unsplash.com/photo-1634017839464-5c339bbe3f35?q=80&w=1935",
-    category: "Website",
-    techStack: ["React", "Greensock (GSAP)", "Canvas", "Payload CMS"],
-    date: "November 2023",
-    githubUrl: "https://github.com/example/mandala",
-  },
-  {
-    id: 5,
-    title: "E-Commerce Platform",
-    description: "A full-featured e-commerce solution with cart management, payment integration, and admin dashboard.",
-    content: "A robust e-commerce platform built for high performance and scalability. Features include real-time inventory management, secure payment processing with Stripe, and a comprehensive admin panel for product and order management. The frontend is built for speed and SEO optimization.",
-    image: "https://images.unsplash.com/photo-1557821552-17105176677c?q=80&w=2089",
-    category: "Web Application",
-    techStack: ["React", "Node.js", "MongoDB", "Stripe", "Tailwind CSS"],
-    date: "October 2023",
-    liveUrl: "https://example.com/ecommerce",
-    githubUrl: "https://github.com/example/ecommerce"
-  },
-  {
-    id: 6,
-    title: "Task Management App",
-    description: "Collaborative project management tool with real-time updates and team collaboration.",
-    content: "A professional-grade task management tool designed for teams. It features drag-and-drop task boards, real-time collaboration using WebSockets, and detailed project analytics. The application focus on productivity and intuitive user experience.",
-    image: "https://images.unsplash.com/photo-1540350394557-8d14678e7f91?q=80&w=2032",
-    category: "Web Application",
-    techStack: ["React", "Firebase", "Framer Motion", "Tailwind CSS"],
-    date: "September 2023",
-    liveUrl: "https://example.com/tasks",
-    githubUrl: "https://github.com/example/tasks"
-  },
-  {
-    id: 7,
-    title: "Weather Dashboard",
-    description: "Real-time weather application with location-based forecasts and interactive maps.",
-    content: "A sleek weather dashboard providing accurate, real-time weather data. It integrates multiple weather APIs to provide detailed forecasts, humidity levels, and wind speed. Features an interactive map for global weather visualization.",
-    image: "https://images.unsplash.com/photo-1504608510435-c69bb9c504ca?q=80&w=2010",
-    category: "Web Application",
-    techStack: ["React", "OpenWeather API", "Chart.js"],
-    date: "August 2023",
-    liveUrl: "https://example.com/weather",
-    githubUrl: "https://github.com/example/weather"
   }
 ];
