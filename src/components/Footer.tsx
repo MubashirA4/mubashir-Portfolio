@@ -7,6 +7,7 @@ import {
   Twitter,
   Instagram,
   MapPin,
+  Triangle,
 } from "lucide-react";
 
 const Footer = () => {
@@ -28,7 +29,12 @@ const Footer = () => {
         icon: Linkedin,
         href: "https://www.linkedin.com/in/mubashir-ahmad-hamza-a5961b279/",
       },
-      { name: "Email", icon: Mail, href: "mailto:contact@mubashir.dev" },
+      { name: "Email", icon: Mail, href: "mailto:hamza.cse123@gmail.com" },
+      {
+        name: "Vercel",
+        icon: Triangle,
+        href: "https://vercel.com/mubashir-ahmad-hamzas-projects",
+      },
     ],
     legal: [
       { name: "Privacy Policy", href: "#" },

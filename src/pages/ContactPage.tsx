@@ -7,6 +7,7 @@ import {
   Github,
   Linkedin,
   CheckCircle,
+  Triangle,
 } from "lucide-react";
 import { useState } from "react";
 import { z } from "zod";
@@ -88,27 +89,30 @@ const ContactPage = () => {
     {
       icon: Mail,
       label: "Email",
-      value: "contact@mubashir.dev",
-      href: "mailto:contact@mubashir.dev",
+      value: "hamza.cse123@gmail.com",
+      href: "mailto:hamza.cse123@gmail.com",
     },
     {
       icon: MapPin,
       label: "Location",
-      value: "Available Worldwide",
+      value: "Lahore, Pakistan",
       href: "#",
-    },
-    {
-      icon: Phone,
-      label: "Phone",
-      value: "+1 (555) 123-4567",
-      href: "tel:+15551234567",
     },
   ];
 
   const socialLinks = [
-    { icon: Github, label: "GitHub", href: "#" },
-    { icon: Linkedin, label: "LinkedIn", href: "#" },
-    { icon: Mail, label: "Email", href: "mailto:contact@mubashir.dev" },
+    { icon: Github, label: "GitHub", href: "https://github.com/MubashirA4" },
+    {
+      icon: Linkedin,
+      label: "LinkedIn",
+      href: "https://www.linkedin.com/in/mubashir-ahmad-hamza-a5961b279/",
+    },
+    { icon: Mail, label: "Email", href: "mailto:hamza.cse123@gmail.com" },
+    {
+      icon: Triangle,
+      label: "Vercel",
+      href: "https://vercel.com/mubashir-ahmad-hamzas-projects",
+    },
   ];
 
   return (

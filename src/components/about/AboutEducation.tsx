@@ -7,6 +7,15 @@ interface EducationProps {
 
 const educationData = [
   {
+    degree: "MERN Stack Web Development (React & Node.js)",
+    institution:
+      "Youth Empowerment and Training Program (YETP) Training Center, Lahore",
+    period: "APR 2024 - JUL 2024",
+    description:
+      "Successfully completed the MERN Stack Web Development course, gaining hands-on experience in building full-stack web applications using MongoDB, Express.js, React.js, and Node.js. Developed skills in REST APIs, authentication, responsive UI design, and deploying scalable, production-ready applications.",
+    coursework: "Grade: A+ (85%) | Duration: Three Months | Issued: Oct 2024",
+  },
+  {
     degree: "Bachelor of Science in Computer Science (BSCS)",
     institution: "Virtual University of Pakistan",
     period: "OCT 2020 - SEP 2024",
@@ -34,10 +43,10 @@ const AboutEducation = ({ isInView, itemVariants }: EducationProps) => {
 
       <div className="mb-16 lg:mb-24 flex flex-col gap-4">
         <span className="text-primary font-bold tracking-[0.3em] uppercase text-sm block">
-          Learnings
+          Qualifications
         </span>
         <h2 className="text-5xl lg:text-7xl font-bold uppercase tracking-tighter">
-          Academic Journey
+          Education & Certifications
         </h2>
       </div>
 

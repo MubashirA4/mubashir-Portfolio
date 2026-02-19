@@ -7,6 +7,7 @@ import {
   Github,
   Linkedin,
   CheckCircle,
+  Triangle,
 } from "lucide-react";
 import { useState, useRef } from "react";
 import { z } from "zod";
@@ -89,13 +90,13 @@ const ContactSection = () => {
     {
       icon: Mail,
       label: "Email",
-      value: "contact@mubashir.dev",
-      href: "mailto:contact@mubashir.dev",
+      value: "hamza.cse123@gmail.com",
+      href: "mailto:hamza.cse123@gmail.com",
     },
     {
       icon: MapPin,
       label: "Location",
-      value: "Available Worldwide",
+      value: "Lahore, Pakistan",
       href: "#",
     },
     {
@@ -182,6 +183,11 @@ const ContactSection = () => {
                     icon: Mail,
                     label: "Email",
                     href: "mailto:hamza.cse123@gmail.com",
+                  },
+                  {
+                    icon: Triangle,
+                    label: "Vercel",
+                    href: "https://vercel.com/mubashir-ahmad-hamzas-projects",
                   },
                 ].map((social) => (
                   <motion.a
