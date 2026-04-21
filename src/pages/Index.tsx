@@ -1,10 +1,15 @@
+import { lazy, Suspense } from "react";
 import Navigation from "@/components/Navigation";
 import Hero from "@/components/Hero";
-import About from "@/components/About";
-import Skills from "@/components/Skills";
-import CTA from "@/components/CTA";
 import Footer from "@/components/Footer";
-import LatestWorks from "@/components/latestWorks";
+
+// Lazy load non-critical sections
+const About = lazy(() => import("@/components/About"));
+const Skills = lazy(() => import("@/components/Skills"));
+const LatestWorks = lazy(() => import("@/components/latestWorks"));
+const CTA = lazy(() => import("@/components/CTA"));
+
+const SectionLoading = () => <div className="h-40" />;
 
 const Index = () => {
   return (
@@ -12,10 +17,12 @@ const Index = () => {
       <Navigation />
       <main>
         <Hero />
-        <About />
-        <Skills />
-        <LatestWorks />
-        <CTA />
+        <Suspense fallback={<SectionLoading />}>
+          <About />
+          <Skills />
+          <LatestWorks />
+          <CTA />
+        </Suspense>
       </main>
       <Footer />
     </div>

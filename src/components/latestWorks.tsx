@@ -1,4 +1,4 @@
-import { motion, AnimatePresence, useInView } from "framer-motion";
+import { m, AnimatePresence, useInView } from "framer-motion";
 import { useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { projects } from "@/data/projects";
@@ -23,14 +23,14 @@ const LatestWorks = () => {
     >
       {/* Centered Heading */}
       <div className="text-center mb-40" ref={titleRef}>
-        <motion.h2
+        <m.h2
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-          className="text-7xl sm:text-8xl lg:text-9xl font-bold  uppercase tracking-tighter"
+          className="text-7xl sm:text-8xl lg:text-9xl font-bold uppercase tracking-tighter"
         >
           Latest work
-        </motion.h2>
+        </m.h2>
       </div>
 
       <div className="grid lg:grid-cols-3 gap-12 items-start">
@@ -38,7 +38,7 @@ const LatestWorks = () => {
         <div className="lg:col-span-1 max-h-[580px] overflow-y-auto no-scrollbar pr-4 relative">
           <div className="flex flex-col">
             {projects.map((project, index) => (
-              <motion.div
+              <m.div
                 key={project.id}
                 initial={{ opacity: 0, x: -20 }}
                 animate={isInView ? { opacity: 1, x: 0 } : {}}
@@ -71,7 +71,7 @@ const LatestWorks = () => {
                       {project.title}
                     </h3>
 
-                    <motion.div
+                    <m.div
                       initial={false}
                       animate={{
                         height: hoveredIndex === index ? "auto" : 0,
@@ -84,7 +84,7 @@ const LatestWorks = () => {
                       <p className="text-lg text-muted-foreground max-w-sm leading-relaxed">
                         {project.description}
                       </p>
-                    </motion.div>
+                    </m.div>
                   </div>
 
                   {/* View Button - Mobile Only or subtle on DT */}
@@ -98,7 +98,7 @@ const LatestWorks = () => {
                     <ArrowIcon size={20} />
                   </div>
                 </div>
-              </motion.div>
+              </m.div>
             ))}
           </div>
           {/* Bottom Fade Mask */}
@@ -109,7 +109,7 @@ const LatestWorks = () => {
         <div className="hidden lg:block lg:col-span-2 sticky top-32 perspective-1000 group">
           <div className="relative aspect-[16/10] rounded-3xl overflow-hidden bg-muted">
             <AnimatePresence mode="wait">
-              <motion.div
+              <m.div
                 key={hoveredIndex}
                 initial={{ opacity: 0, scale: 1.1, filter: "blur(10px)" }}
                 animate={{ opacity: 1, scale: 1, filter: "blur(0px)" }}
@@ -121,6 +121,8 @@ const LatestWorks = () => {
                 <img
                   src={projects[hoveredIndex].image}
                   alt={projects[hoveredIndex].title}
+                  loading="lazy"
+                  decoding="async"
                   className="w-full h-full object-cover object-left"
                 />
 
@@ -131,7 +133,7 @@ const LatestWorks = () => {
                     <ArrowIcon size={20} />
                   </div>
                 </div>
-              </motion.div>
+              </m.div>
             </AnimatePresence>
           </div>
         </div>

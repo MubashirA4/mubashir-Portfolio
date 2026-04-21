@@ -1,4 +1,4 @@
-import { motion, AnimatePresence } from "framer-motion";
+import { m, AnimatePresence } from "framer-motion";
 import { useState, useEffect } from "react";
 import { Menu, X, Github, Linkedin, Mail } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
@@ -10,7 +10,7 @@ const navItems = [
   { name: "Contact", href: "/#contact" },
 ];
 
-const MotionLink = motion(Link);
+const MotionLink = m(Link);
 
 const Navigation = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -38,7 +38,7 @@ const Navigation = () => {
       />
 
       {/* Interactive Navigation Layer (z-[130]) */}
-      <motion.nav
+      <m.nav
         initial={{ y: -100, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.6, ease: "easeOut" }}
@@ -80,33 +80,35 @@ const Navigation = () => {
                 ))}
               </div>
 
-              <motion.a
+              <m.a
                 href="/Mubashir Ahmad CV.pdf"
                 download="Mubashir Ahmad CV.pdf"
+                aria-label="Download my resume"
                 className="px-5 py-2.5 bg-white text-black rounded-full font-semibold text-sm hover:scale-105 transition-transform ml-2"
                 initial={{ opacity: 0, y: -20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.8, duration: 0.4 }}
               >
                 Download CV
-              </motion.a>
+              </m.a>
             </div>
 
             {/* Mobile Menu Button */}
-            <motion.button
+            <m.button
               className="md:hidden p-2 text-foreground"
+              aria-label={isMobileMenuOpen ? "Close menu" : "Open menu"}
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               whileTap={{ scale: 0.95 }}
             >
               {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-            </motion.button>
+            </m.button>
           </div>
         </div>
 
         {/* Mobile Menu */}
         <AnimatePresence>
           {isMobileMenuOpen && (
-            <motion.div
+            <m.div
               initial={{ opacity: 0, height: 0 }}
               animate={{ opacity: 1, height: "auto" }}
               exit={{ opacity: 0, height: 0 }}
@@ -130,9 +132,10 @@ const Navigation = () => {
                   ))}
                 </div>
 
-                <motion.a
+                <m.a
                   href="/Mubashir Ahmad CV.pdf"
                   download="Mubashir Ahmad CV.pdf"
+                  aria-label="Download my resume"
                   className="px-5 py-3 bg-white text-black rounded-xl font-bold text-center mt-2 shadow-lg"
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
@@ -140,12 +143,12 @@ const Navigation = () => {
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
                   Download CV
-                </motion.a>
+                </m.a>
               </div>
-            </motion.div>
+            </m.div>
           )}
         </AnimatePresence>
-      </motion.nav>
+      </m.nav>
     </>
   );
 };

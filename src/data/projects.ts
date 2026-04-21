@@ -1,6 +1,6 @@
-import TechtideImage from '../assets/projects/Techtide.png'
-import NexusClinicImage from '../assets/projects/Nexus Image 1.png'
-import BlogImage from '../assets/projects/Blog.png'
+import TechtideImage from '../assets/projects/Techtide.webp'
+import NexusClinicImage from '../assets/projects/Nexus Image 1.webp'
+import BlogImage from '../assets/projects/Blog.webp'
 export interface Project {
   id: number;
   title: string;
@@ -34,23 +34,23 @@ export const projects: Project[] = [
     impact: "Created a scalable and engaging digital experience that effectively reflects the brand identity and delivers full-stack excellence.",
   },
   {
-  id: 2,
-  title: "Nexus Clinic",
-  description: "Full Stack healthcare platform built with MERN stack and Tailwind CSS.",
-  content:
-    "Nexus Clinic is a full-stack healthcare appointment and management platform built using the MERN stack (MongoDB, Express.js, React.js, Node.js) with Tailwind CSS for a clean and responsive user interface. The system allows patients to book appointments, view doctors, and access essential medical information, while backend services handle secure data storage, authentication, and API operations. Designed with performance, usability, and healthcare accessibility in mind.",
-  image: NexusClinicImage,
-  category: "Full Stack",
-  techStack: ["MongoDB", "Express.js", "React.js", "Node.js", "Tailwind CSS"],
-  date: "March 2026",
-  liveUrl: "https://mubashir-portfolio-2ify.vercel.app/", // Add live URL if deployed
-  challenges:
-    "Built a full healthcare appointment system with secure authentication, dynamic data management, and responsive interfaces.",
-  solution:
-    "Used the MERN stack to implement RESTful APIs, managed state with React, and styled robust UI with Tailwind CSS for seamless interactions.",
-  impact:
-    "Delivered a scalable, user-centered healthcare platform demonstrating real-world full-stack development and problem-solving abilities.",
-},
+    id: 2,
+    title: "Nexus Clinic",
+    description: "Full Stack healthcare platform built with MERN stack and Tailwind CSS.",
+    content:
+      "Nexus Clinic is a full-stack healthcare appointment and management platform built using the MERN stack (MongoDB, Express.js, React.js, Node.js) with Tailwind CSS for a clean and responsive user interface. The system allows patients to book appointments, view doctors, and access essential medical information, while backend services handle secure data storage, authentication, and API operations. Designed with performance, usability, and healthcare accessibility in mind.",
+    image: NexusClinicImage,
+    category: "Full Stack",
+    techStack: ["MongoDB", "Express.js", "React.js", "Node.js", "Tailwind CSS"],
+    date: "March 2026",
+    liveUrl: "https://mubashir-portfolio-2ify.vercel.app/", // Add live URL if deployed
+    challenges:
+      "Built a full healthcare appointment system with secure authentication, dynamic data management, and responsive interfaces.",
+    solution:
+      "Used the MERN stack to implement RESTful APIs, managed state with React, and styled robust UI with Tailwind CSS for seamless interactions.",
+    impact:
+      "Delivered a scalable, user-centered healthcare platform demonstrating real-world full-stack development and problem-solving abilities.",
+  },
   {
     id: 3,
     title: "Blog Project",

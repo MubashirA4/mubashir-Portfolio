@@ -26,11 +26,11 @@
     --muted: 0 0% 12%;
     --muted-foreground: 0 0% 60%;
 
-    --accent: 142 70% 45%;
+    --accent: 158 64% 52%;
     --accent-foreground: 0 0% 98%;
 
     /* Success/Available indicator */
-    --success: 142 70% 45%;
+    --success: 158 64% 52%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 98%;
@@ -72,8 +72,8 @@
     --secondary: 0 0% 15%;
     --secondary-foreground: 0 0% 98%;
     --muted: 0 0% 12%;
-    --muted-foreground: 0 0% 60%;
-    --accent: 14 90% 58%;
+    --muted-foreground: 0 0% 75%;
+    --accent: 158 64% 52%;
     --accent-foreground: 0 0% 4%;
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 0 0% 98%;
@@ -110,7 +110,7 @@
 @layer components {
   /* Section container */
   .section-container {
-    @apply container mx-auto px-6 lg:px-12 py-20 lg:py-32;
+    @apply container mx-auto px-6 lg:px-12 py-20 lg:py-32 relative;
     scroll-margin-top: 100px;
   }
 

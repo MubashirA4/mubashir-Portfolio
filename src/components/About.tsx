@@ -1,4 +1,4 @@
-import { motion, useScroll, useTransform } from "framer-motion";
+import { m, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
@@ -7,7 +7,7 @@ const About = () => {
   const containerRef = useRef(null);
   const { scrollYProgress } = useScroll({
     target: containerRef,
-    offset: ["start 0.7", "start 0.2"],
+    offset: ["start 0.9", "start 0.4"],
   });
 
   const text =
@@ -17,48 +17,40 @@ const About = () => {
   return (
     <section id="about" className="section-container" ref={containerRef}>
       <div className="flex flex-col lg:flex-row gap-16">
-        <motion.span
+        <m.span
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className="text-muted-foreground text-md shrink-0"
-          data-styles-preset="HyNmndrGv"
+          className="text-muted-foreground text-md shrink-0 uppercase tracking-widest"
         >
           (ABOUT)
-        </motion.span>
+        </m.span>
 
         <div className="flex flex-col items-start gap-12">
           <h2 className="heading-display w-full">
             {words.map((word, index) => {
-              // Each word reveals progressively as user scrolls
               const start = index / words.length;
               const end = (index + 1) / words.length;
-
-              // Opacity transitions from 0.15 (dark) to 1 (bright)
-              const opacity = useTransform(
-                scrollYProgress,
-                [start, end],
-                [0.15, 1],
-              );
+              const opacity = useTransform(scrollYProgress, [start, end], [0.2, 1]);
 
               return (
-                <motion.span
+                <m.span
                   key={index}
                   style={{ opacity }}
-                  className="text-foreground"
+                  className="text-foreground transition-opacity"
                 >
                   {word}{" "}
-                </motion.span>
+                </m.span>
               );
             })}
           </h2>
 
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: 0.5 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
           >
             <Link
               to="/about"
@@ -67,7 +59,7 @@ const About = () => {
               EXPLORE MORE
               <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </Link>
-          </motion.div>
+          </m.div>
         </div>
       </div>
     </section>

@@ -16,7 +16,7 @@ const Tools = () => {
             <div className="flex flex-wrap gap-3">
               {[
                 "VS Code",
-                "Anti Gravity",
+                "Antigravity",
                 "Git/GitHub",
                 "Vercel",
                 "Postman",

@@ -1,4 +1,4 @@
-import { motion, useInView, Variants, Easing } from "framer-motion";
+import { m, useInView, Variants, Easing } from "framer-motion";
 import { useRef } from "react";
 
 const skillCategories = [
@@ -52,32 +52,32 @@ const Skills = () => {
       {/* Background decoration */}
       <div className="absolute top-0 right-0 -z-10 w-96 h-96 bg-primary/5 blur-[120px] rounded-full pointer-events-none" />
 
-      <motion.span
+      <m.span
         initial={{ opacity: 0 }}
         animate={isInView ? { opacity: 1 } : {}}
         transition={{ duration: 0.5 }}
         className="section-label"
       >
         (SKILLS)
-      </motion.span>
+      </m.span>
 
-      <motion.h2
+      <m.h2
         initial={{ opacity: 0, y: 30 }}
         animate={isInView ? { opacity: 1, y: 0 } : {}}
         transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-        className="text-7xl sm:text-8xl lg:text-7xl font-bold  uppercase tracking-tighter mb-40"
+        className="text-7xl sm:text-8xl lg:text-7xl font-bold uppercase tracking-tighter mb-40"
       >
         Technical <span className="">Powers</span>
-      </motion.h2>
+      </m.h2>
 
-      <motion.div
+      <m.div
         variants={containerVariants}
         initial="hidden"
         animate={isInView ? "visible" : "hidden"}
         className="grid md:grid-cols-4 gap-12 lg:gap-16"
       >
         {skillCategories.map((category) => (
-          <motion.div
+          <m.div
             key={category.title}
             variants={itemVariants}
             className="flex flex-col"
@@ -92,7 +92,7 @@ const Skills = () => {
                   key={skill}
                   className="group flex items-center justify-between border-b border-border/50 pb-4"
                 >
-                  <span className="text-2xl lg:text-3xl font-bold text-muted-foreground/60 group-hover:text-foreground transition-all duration-300 transform group-hover:translate-x-2">
+                  <span className="text-2xl lg:text-3xl font-bold text-muted-foreground group-hover:text-foreground transition-all duration-300 transform group-hover:translate-x-2">
                     {skill}
                   </span>
 
@@ -101,9 +101,9 @@ const Skills = () => {
                 </li>
               ))}
             </ul>
-          </motion.div>
+          </m.div>
         ))}
-      </motion.div>
+      </m.div>
 
       {/* Large background text for aesthetics */}
       <div className="absolute -bottom-10 left-0 -z-20 pointer-events-none select-none">

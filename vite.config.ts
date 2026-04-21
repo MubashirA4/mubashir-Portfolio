@@ -18,4 +18,22 @@ export default defineConfig(({ mode }) => ({
       "@": path.resolve(__dirname, "./src"),
     },
   },
+  build: {
+    target: "esnext",
+    minify: "terser",
+    cssMinify: true,
+    rollupOptions: {
+      output: {
+        manualChunks(id) {
+          if (id.includes("node_modules")) {
+            if (id.includes("framer-motion")) return "vendor-framer";
+            if (id.includes("lucide-react")) return "vendor-icons";
+            if (id.includes("@radix-ui")) return "vendor-ui";
+            if (id.includes("react") || id.includes("react-dom") || id.includes("react-router")) return "vendor-react";
+            return "vendor";
+          }
+        },
+      },
+    },
+  },
 }));
