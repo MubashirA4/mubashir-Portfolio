@@ -1,26 +1,28 @@
 import { motion } from "framer-motion";
-import { Link } from "react-router-dom";
+import { Link, useNavigate, useLocation } from "react-router-dom";
+import { useCallback } from "react";
 import {
   Github,
   Linkedin,
   Mail,
-  Twitter,
-  Instagram,
   MapPin,
   Triangle,
 } from "lucide-react";
 
 const Footer = () => {
+  const navigate = useNavigate();
+  const location = useLocation();
+
   const footerLinks = {
     main: [
       { name: "Home", href: "/" },
-      { name: "About", href: "#about" },
-      { name: "Services", href: "#specialization" },
-      { name: "Skills", href: "#skills" },
-      { name: "Projects", href: "#projects" },
-      { name: "Experience", href: "#experience" },
-      { name: "Education", href: "#education" },
-      { name: "Contact", href: "#contact" },
+      { name: "About", href: "/about#about" },
+      { name: "Services", href: "/about#specialization" },
+      { name: "Skills", href: "/#skills" },
+      { name: "Projects", href: "/#projects" },
+      { name: "Experience", href: "/about#experience" },
+      { name: "Education", href: "/about#education" },
+      { name: "Contact", href: "/#contact" },
     ],
     social: [
       { name: "GitHub", icon: Github, href: "https://github.com/MubashirA4" },
@@ -41,6 +43,36 @@ const Footer = () => {
       { name: "Terms of Service", href: "#" },
     ],
   };
+
+  const handleNavigation = useCallback((href: string) => {
+    const [path, hash] = href.split("#");
+    
+    if (hash) {
+      const currentPath = location.pathname;
+      const targetPath = path;
+
+      if (currentPath === targetPath) {
+        // Same page, just scroll to the hash
+        setTimeout(() => {
+          const element = document.getElementById(hash);
+          if (element) {
+            element.scrollIntoView({ behavior: "smooth" });
+          }
+        }, 0);
+      } else {
+        // Different page, navigate first then scroll
+        navigate(targetPath);
+        setTimeout(() => {
+          const element = document.getElementById(hash);
+          if (element) {
+            element.scrollIntoView({ behavior: "smooth" });
+          }
+        }, 100);
+      }
+    } else {
+      navigate(path);
+    }
+  }, [location.pathname, navigate]);
 
   return (
     <footer className="border-t border-border bg-background/50 backdrop-blur-sm">
@@ -85,13 +117,13 @@ const Footer = () => {
             <ul className="grid grid-cols-2 grid-rows-4 grid-flow-col gap-x-8 gap-y-4">
               {footerLinks.main.map((link) => (
                 <li key={link.name}>
-                  <Link
-                    to={link.href}
-                    className="text-lg text-muted-foreground hover:text-primary transition-colors flex items-center gap-2 group"
+                  <button
+                    onClick={() => handleNavigation(link.href)}
+                    className="text-lg text-muted-foreground hover:text-primary transition-colors flex items-center gap-2 group bg-transparent border-none cursor-pointer p-0"
                   >
                     <span className="w-0 h-[1px] bg-primary group-hover:w-4 transition-all duration-300" />
                     {link.name}
-                  </Link>
+                  </button>
                 </li>
               ))}
             </ul>

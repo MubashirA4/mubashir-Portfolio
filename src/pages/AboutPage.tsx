@@ -1,5 +1,4 @@
 import Navigation from "@/components/Navigation";
-import Education from "@/components/Education";
 import AboutSection from "@/components/AboutSection";
 import Footer from "@/components/Footer";
 import BackButton from "@/components/BackButton";

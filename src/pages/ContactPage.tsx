@@ -1,44 +1,16 @@
 import { motion } from "framer-motion";
 import {
-  Mail,
-  MapPin,
-  Phone,
-  Send,
-  Github,
-  Linkedin,
   CheckCircle,
-  Triangle,
+  Send,
 } from "lucide-react";
 import { useState } from "react";
-import { z } from "zod";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import BackButton from "@/components/BackButton";
-
-const contactSchema = z.object({
-  name: z
-    .string()
-    .trim()
-    .min(1, "Name is required")
-    .max(100, "Name must be less than 100 characters"),
-  email: z
-    .string()
-    .trim()
-    .email("Invalid email address")
-    .max(255, "Email must be less than 255 characters"),
-  subject: z
-    .string()
-    .trim()
-    .min(1, "Subject is required")
-    .max(200, "Subject must be less than 200 characters"),
-  message: z
-    .string()
-    .trim()
-    .min(1, "Message is required")
-    .max(1000, "Message must be less than 1000 characters"),
-});
-
-type ContactForm = z.infer<typeof contactSchema>;
+import { contactSchema, type ContactForm } from "@/schemas/contact";
+import { CONTACT_INFO, SOCIAL_LINKS } from "@/data/contact";
+import { submitToFirebase } from "@/lib/firebase";
+import { toast } from "sonner";
 
 const ContactPage = () => {
   const [formData, setFormData] = useState<ContactForm>({
@@ -78,42 +50,21 @@ const ContactPage = () => {
     }
 
     setIsSubmitting(true);
-    await new Promise((resolve) => setTimeout(resolve, 1500));
-    setIsSubmitting(false);
-    setIsSuccess(true);
-    setFormData({ name: "", email: "", subject: "", message: "" });
-    setTimeout(() => setIsSuccess(false), 5000);
+    try {
+      await submitToFirebase(formData);
+      setIsSuccess(true);
+      setFormData({ name: "", email: "", subject: "", message: "" });
+      toast.success("Message sent successfully!");
+      setTimeout(() => setIsSuccess(false), 5000);
+    } catch (error) {
+      console.error("Firebase submission error:", error);
+      toast.error("Failed to send message. Please try again.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
-
-  const contactInfo = [
-    {
-      icon: Mail,
-      label: "Email",
-      value: "hamza.cse123@gmail.com",
-      href: "mailto:hamza.cse123@gmail.com",
-    },
-    {
-      icon: MapPin,
-      label: "Location",
-      value: "Lahore, Pakistan",
-      href: "#",
-    },
-  ];
-
-  const socialLinks = [
-    { icon: Github, label: "GitHub", href: "https://github.com/MubashirA4" },
-    {
-      icon: Linkedin,
-      label: "LinkedIn",
-      href: "https://www.linkedin.com/in/mubashir-ahmad-hamza-a5961b279/",
-    },
-    { icon: Mail, label: "Email", href: "mailto:hamza.cse123@gmail.com" },
-    {
-      icon: Triangle,
-      label: "Vercel",
-      href: "https://vercel.com/mubashir-ahmad-hamzas-projects",
-    },
-  ];
+  const contactInfo = CONTACT_INFO;
+  const socialLinks = SOCIAL_LINKS;
 
   return (
     <div className="min-h-screen bg-background overflow-x-hidden">

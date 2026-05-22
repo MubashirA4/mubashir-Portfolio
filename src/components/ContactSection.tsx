@@ -10,33 +10,11 @@ import {
   Triangle,
 } from "lucide-react";
 import { useState, useRef } from "react";
-import { z } from "zod";
 import { useInView } from "framer-motion";
-
-const contactSchema = z.object({
-  name: z
-    .string()
-    .trim()
-    .min(1, "Name is required")
-    .max(100, "Name must be less than 100 characters"),
-  email: z
-    .string()
-    .trim()
-    .email("Invalid email address")
-    .max(255, "Email must be less than 255 characters"),
-  subject: z
-    .string()
-    .trim()
-    .min(1, "Subject is required")
-    .max(200, "Subject must be less than 200 characters"),
-  message: z
-    .string()
-    .trim()
-    .min(1, "Message is required")
-    .max(1000, "Message must be less than 1000 characters"),
-});
-
-type ContactForm = z.infer<typeof contactSchema>;
+import { contactSchema, type ContactForm } from "@/schemas/contact";
+import { CONTACT_INFO } from "@/data/contact";
+import { submitToFirebase } from "@/lib/firebase";
+import { toast } from "sonner";
 
 const ContactSection = () => {
   const [formData, setFormData] = useState<ContactForm>({
@@ -79,33 +57,19 @@ const ContactSection = () => {
     }
 
     setIsSubmitting(true);
-    await new Promise((resolve) => setTimeout(resolve, 1500));
-    setIsSubmitting(false);
-    setIsSuccess(true);
-    setFormData({ name: "", email: "", subject: "", message: "" });
-    setTimeout(() => setIsSuccess(false), 5000);
+    try {
+      await submitToFirebase(formData);
+      setIsSuccess(true);
+      setFormData({ name: "", email: "", subject: "", message: "" });
+      toast.success("Message sent successfully!");
+      setTimeout(() => setIsSuccess(false), 5000);
+    } catch (error) {
+      console.error("Firebase submission error:", error);
+      toast.error("Failed to send message. Please try again.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
-
-  const contactInfo = [
-    {
-      icon: Mail,
-      label: "Email",
-      value: "hamza.cse123@gmail.com",
-      href: "mailto:hamza.cse123@gmail.com",
-    },
-    {
-      icon: MapPin,
-      label: "Location",
-      value: "Lahore, Pakistan",
-      href: "#",
-    },
-    {
-      icon: Phone,
-      label: "Phone",
-      value: "+1 (555) 123-4567",
-      href: "tel:+15551234567",
-    },
-  ];
 
   return (
     <section
@@ -141,7 +105,7 @@ const ContactSection = () => {
             className="lg:col-span-2 space-y-10"
           >
             <div className="space-y-6">
-              {contactInfo.map((info, index) => (
+              {CONTACT_INFO.map((info, index) => (
                 <motion.a
                   key={info.label}
                   href={info.href}

@@ -8,14 +8,18 @@ interface ExperienceProps {
 
 const experienceData = [
   {
-    role: "Front-End Lead",
-    company: "TechTideCo.",
-    period: "DEC 2025 - Present",
+    role: "MERN Stack Developer",
+    company: "TechTide Corp LLP",
+    period: "Dec 2025 - Present",
     description:
-      "Lead front-end development for responsive and scalable web applications.",
+      "As a MERN Stack Developer at TechTide Corp LLP, I design and develop scalable, high-performance web applications using MongoDB, Express.js, React, and Node.js, along with Firebase for real-time and cloud-based solutions. I focus on building efficient full-stack systems with clean architecture and seamless user experiences.",
     points: [
-      "Collaborate with designers and backend teams to deliver high-performance, user-friendly interfaces.",
-      "Oversee code quality, optimize performance, and manage version control and deployments.",
+      "Developed and maintained full-stack applications using the MERN stack (MongoDB, Express.js, React, Node.js)",
+      "Built responsive and modern user interfaces using React.js and Tailwind CSS",
+      "Designed and integrated RESTful APIs for efficient client-server communication",
+      "Implemented secure authentication using Firebase Authentication and JWT",
+      "Utilized Firebase (Firestore, Realtime Database, Cloud Functions) for real-time features and backend services",
+      "Improved application performance and optimized load times for better user experience",
     ],
   },
   {

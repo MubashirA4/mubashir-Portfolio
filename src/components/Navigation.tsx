@@ -1,7 +1,8 @@
 import { m, AnimatePresence } from "framer-motion";
 import { useState, useEffect } from "react";
-import { Menu, X, Github, Linkedin, Mail } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
+import { throttle } from "@/lib/throttle";
 
 const navItems = [
   { name: "About", href: "/#about" },
@@ -19,9 +20,10 @@ const Navigation = () => {
   const isHomePage = location.pathname === "/";
 
   useEffect(() => {
-    const handleScroll = () => {
+    const handleScroll = throttle(() => {
       setIsScrolled(window.scrollY > 50);
-    };
+    }, 150);
+
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
