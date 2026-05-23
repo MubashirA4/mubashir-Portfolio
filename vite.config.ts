@@ -29,7 +29,24 @@ export default defineConfig(({ mode }) => ({
             if (id.includes("framer-motion")) return "vendor-framer";
             if (id.includes("lucide-react")) return "vendor-icons";
             if (id.includes("@radix-ui")) return "vendor-ui";
-            if (id.includes("react") || id.includes("react-dom") || id.includes("react-router")) return "vendor-react";
+            if (
+              id.includes("react") ||
+              id.includes("react-dom") ||
+              id.includes("react-router") ||
+              id.includes("scheduler") ||
+              id.includes("next-themes") ||
+              id.includes("sonner") ||
+              id.includes("vaul") ||
+              id.includes("cmdk") ||
+              id.includes("input-otp") ||
+              id.includes("@hookform") ||
+              id.includes("@tanstack/react-query") ||
+              id.includes("embla-carousel-react") ||
+              id.includes("react-day-picker") ||
+              id.includes("react-hook-form") ||
+              id.includes("react-resizable-panels") ||
+              id.includes("recharts")
+            ) return "vendor-react";
             return "vendor";
           }
         },

@@ -21,7 +21,7 @@
     "noUnusedParameters": true,
     "noImplicitAny": false,
     "noFallthroughCasesInSwitch": false,
-
+    "ignoreDeprecations": "6.0",
     "baseUrl": ".",
     "paths": {
       "@/*": ["./src/*"]
