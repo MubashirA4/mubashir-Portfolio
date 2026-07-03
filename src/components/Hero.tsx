@@ -1,7 +1,6 @@
 import { m, useScroll, useTransform, useSpring } from "framer-motion";
-import { useRef } from "react";
+import React, { useRef } from "react";
 import { Link } from "react-router-dom";
-
 import MubashirImg from "../assets/Mubashir.webp";
 
 const Hero = () => {
@@ -66,13 +65,7 @@ const Hero = () => {
             </p>
 
             <div className="mt-12 flex flex-wrap gap-4 items-center">
-              <Link
-                to="/contact"
-                className="px-8 py-3 bg-white text-black rounded-full font-semibold hover:scale-105 transition-transform flex items-center text-lg group"
-                aria-label="Hire Me"
-              >
-                Hire Me
-              </Link>
+             
               <a
                 href="#projects"
                 className="px-8 py-3 border border-white/40 rounded-full font-semibold hover:bg-white/10 transition text-lg"
@@ -111,7 +104,7 @@ const Hero = () => {
                   alt="Mubashir Ahmad Hamza - Full Stack Developer"
                   loading="eager"
                   decoding="async"
-                  {...({ fetchpriority: "high" } as any)}
+                  {...({ fetchpriority: "high" } as unknown as React.ImgHTMLAttributes<HTMLImageElement>)}
                   className="w-full h-full object-cover object-top grayscale hover:grayscale-0 transition-all duration-700"
                 />
 

@@ -23,8 +23,8 @@ export const CONTACT_INFO = [
   {
     icon: Phone,
     label: "Phone",
-    value: "+1 (555) 123-4567",
-    href: "tel:+15551234567",
+    value: "+92 333 4475755",
+    href: "tel:+923334475755",
   },
 ];
 
